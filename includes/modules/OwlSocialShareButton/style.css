@@ -1,0 +1,421 @@
+/* Base Styles */
+.owl-social-share-buttons {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+.owl-social-share-title {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.owl-social-share-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Layout Styles */
+.owl-social-share-buttons.layout-horizontal .owl-social-share-buttons-container {
+    flex-direction: row;
+}
+
+.owl-social-share-buttons.layout-vertical .owl-social-share-buttons-container {
+    flex-direction: column;
+}
+
+.owl-social-share-buttons.layout-grid .owl-social-share-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+/* Button Base Styles */
+.owl-social-share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Button Size Styles */
+.owl-social-share-buttons.size-small .owl-social-share-button {
+    height: 30px;
+    padding: 0 10px;
+}
+
+.owl-social-share-buttons.size-small.show-label .owl-social-share-button {
+    min-width: 80px;
+}
+
+.owl-social-share-buttons.size-medium .owl-social-share-button {
+    height: 40px;
+    padding: 0 15px;
+}
+
+.owl-social-share-buttons.size-medium.show-label .owl-social-share-button {
+    min-width: 100px;
+}
+
+.owl-social-share-buttons.size-large .owl-social-share-button {
+    height: 50px;
+    padding: 0 20px;
+}
+
+.owl-social-share-buttons.size-large.show-label .owl-social-share-button {
+    min-width: 120px;
+}
+
+/* Circle Buttons */
+.owl-social-share-buttons.shape-circle .owl-social-share-button:not(.show-label) {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.owl-social-share-buttons.size-small.shape-circle .owl-social-share-button:not(.show-label) {
+    width: 30px;
+    height: 30px;
+}
+
+.owl-social-share-buttons.size-large.shape-circle .owl-social-share-button:not(.show-label) {
+    width: 50px;
+    height: 50px;
+}
+
+/* Button Shapes */
+.owl-social-share-buttons.shape-square .owl-social-share-button {
+    border-radius: 0;
+}
+
+.owl-social-share-buttons.shape-rounded .owl-social-share-button {
+    border-radius: 4px;
+}
+
+.owl-social-share-buttons.shape-circle .owl-social-share-button {
+    border-radius: 50px;
+}
+
+/* Button Icons & Labels */
+.owl-social-share-button i {
+    font-size: 16px;
+}
+
+.owl-social-share-button span {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.owl-social-share-buttons:not(.show-label) .owl-social-share-button span:not(.owl-social-share-count) {
+    display: none;
+}
+
+/* Button Styles */
+.owl-social-share-buttons.style-filled .owl-social-share-button {
+    color: #fff;
+}
+
+.owl-social-share-buttons.style-outlined .owl-social-share-button {
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.owl-social-share-buttons.style-minimal .owl-social-share-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Floating Style */
+.owl-social-share-buttons.style-floating {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    z-index: 999;
+}
+
+.owl-social-share-buttons.style-floating .owl-social-share-buttons-container {
+    flex-direction: column;
+}
+
+/* Hover Animations */
+.owl-social-share-buttons.hover-grow .owl-social-share-button:hover {
+    transform: scale(1.1);
+}
+
+.owl-social-share-buttons.hover-shrink .owl-social-share-button:hover {
+    transform: scale(0.9);
+}
+
+.owl-social-share-buttons.hover-float .owl-social-share-button:hover {
+    transform: translateY(-5px);
+}
+
+.owl-social-share-buttons.hover-rotate .owl-social-share-button:hover {
+    transform: rotate(5deg);
+}
+
+.owl-social-share-buttons.hover-pulse .owl-social-share-button:hover {
+    animation: owl-social-pulse 1s infinite;
+}
+
+@keyframes owl-social-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Share Counts */
+.owl-social-share-count {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 0 8px;
+    margin-left: 8px;
+    font-size: 12px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.owl-social-share-buttons.style-outlined .owl-social-share-count,
+.owl-social-share-buttons.style-minimal .owl-social-share-count {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Original Network Colors */
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-facebook {
+    background-color: #3b5998;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-twitter {
+    background-color: #1da1f2;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-linkedin {
+    background-color: #0077b5;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-pinterest {
+    background-color: #e60023;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-reddit {
+    background-color: #ff4500;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-tumblr {
+    background-color: #35465c;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-whatsapp {
+    background-color: #25d366;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-telegram {
+    background-color: #0088cc;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-email {
+    background-color: #ea4335;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-print {
+    background-color: #6d6d6d;
+}
+
+/* Original Colors for Outlined Style */
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-facebook {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-twitter {
+    color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-linkedin {
+    color: #0077b5;
+    border-color: #0077b5;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-pinterest {
+    color: #e60023;
+    border-color: #e60023;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-reddit {
+    color: #ff4500;
+    border-color: #ff4500;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-tumblr {
+    color: #35465c;
+    border-color: #35465c;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-whatsapp {
+    color: #25d366;
+    border-color: #25d366;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-telegram {
+    color: #0088cc;
+    border-color: #0088cc;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-email {
+    color: #ea4335;
+    border-color: #ea4335;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-print {
+    color: #6d6d6d;
+    border-color: #6d6d6d;
+}
+
+/* Original Colors for Minimal Style */
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-facebook {
+    color: #3b5998;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-twitter {
+    color: #1da1f2;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-linkedin {
+    color: #0077b5;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-pinterest {
+    color: #e60023;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-reddit {
+    color: #ff4500;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-tumblr {
+    color: #35465c;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-whatsapp {
+    color: #25d366;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-telegram {
+    color: #0088cc;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-email {
+    color: #ea4335;
+}
+
+.owl-social-share-buttons.original-colors.style-minimal .owl-social-share-print {
+    color: #6d6d6d;
+}
+
+/* Hover Effects for Original Colors */
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-facebook:hover {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-twitter:hover {
+    background-color: #1da1f2;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-linkedin:hover {
+    background-color: #0077b5;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-pinterest:hover {
+    background-color: #e60023;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-reddit:hover {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-tumblr:hover {
+    background-color: #35465c;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-whatsapp:hover {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-telegram:hover {
+    background-color: #0088cc;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-email:hover {
+    background-color: #ea4335;
+    color: #fff;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-print:hover {
+    background-color: #6d6d6d;
+    color: #fff;
+}
+
+/* Alignment */
+.owl-social-share-buttons.et_pb_text_align_left {
+    text-align: left;
+}
+
+.owl-social-share-buttons.et_pb_text_align_center {
+    text-align: center;
+}
+
+.owl-social-share-buttons.et_pb_text_align_center .owl-social-share-buttons-container {
+    justify-content: center;
+}
+
+.owl-social-share-buttons.et_pb_text_align_right {
+    text-align: right;
+}
+
+.owl-social-share-buttons.et_pb_text_align_right .owl-social-share-buttons-container {
+    justify-content: flex-end;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+    .owl-social-share-buttons.style-floating {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 20px;
+    }
+    
+    .owl-social-share-buttons.style-floating .owl-social-share-buttons-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .owl-social-share-buttons.layout-grid .owl-social-share-buttons-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

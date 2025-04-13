@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Social Share Button Divi
-Plugin URI:  https://owlpixel.com/social-share-button-divi
-Description: An divi extension to set social share on divi website
+Plugin URI:  https://owlpixel.com
+Description: gg
 Version:     1.0.0
-Author:      Owlpixel
+Author:      anowar
 Author URI:  https://owlpixel.com
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

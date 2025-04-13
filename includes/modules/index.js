@@ -1,3 +1,3 @@
-import HelloWorld from './HelloWorld/HelloWorld';
+import OwlSocialShareButton from './OwlSocialShareButton/OwlSocialShareButton';
 
-export default [HelloWorld];
+export default [OwlSocialShareButton];

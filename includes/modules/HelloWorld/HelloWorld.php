@@ -6,8 +6,8 @@ class SSBD_HelloWorld extends ET_Builder_Module {
 	public $vb_support = 'on';
 
 	protected $module_credits = array(
-		'module_uri' => 'https://owlpixel.com/social-share-button-divi',
-		'author'     => 'Owlpixel',
+		'module_uri' => 'https://owlpixel.com',
+		'author'     => 'anowar',
 		'author_uri' => 'https://owlpixel.com',
 	);
 
