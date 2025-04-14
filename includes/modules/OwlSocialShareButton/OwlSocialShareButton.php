@@ -31,7 +31,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $this->name = esc_html__('Owl Social Share Buttons', 'owl-social-sharing-buttons');
         $this->icon = 'share';
         $this->category = esc_html__('Social', 'owl-social-sharing-buttons');
-        
+
         // Load CSS
         $this->setup_styles();
     }
@@ -105,7 +105,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'description' => esc_html__('Upload a custom image to share.', 'owl-social-sharing-buttons'),
                 'toggle_slug' => 'main_content',
             ),
-            
+
             // Network Settings
             'facebook' => array(
                 'label' => esc_html__('Facebook', 'owl-social-sharing-buttons'),
@@ -195,6 +195,61 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'default' => 'off',
                 'toggle_slug' => 'networks',
             ),
+            'viber' => array(
+                'label' => esc_html__('Viber', 'owl-social-sharing-buttons'),
+                'type' => 'yes_no_button',
+                'option_category' => 'configuration',
+                'options' => array(
+                    'on' => esc_html__('Yes', 'owl-social-sharing-buttons'),
+                    'off' => esc_html__('No', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'off',
+                'toggle_slug' => 'networks',
+            ),
+            'skype' => array(
+                'label' => esc_html__('Skype', 'owl-social-sharing-buttons'),
+                'type' => 'yes_no_button',
+                'option_category' => 'configuration',
+                'options' => array(
+                    'on' => esc_html__('Yes', 'owl-social-sharing-buttons'),
+                    'off' => esc_html__('No', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'off',
+                'toggle_slug' => 'networks',
+            ),
+            'messenger' => array(
+                'label' => esc_html__('Messenger', 'owl-social-sharing-buttons'),
+                'type' => 'yes_no_button',
+                'option_category' => 'configuration',
+                'options' => array(
+                    'on' => esc_html__('Yes', 'owl-social-sharing-buttons'),
+                    'off' => esc_html__('No', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'off',
+                'toggle_slug' => 'networks',
+            ),
+            'vk' => array(
+                'label' => esc_html__('VK', 'owl-social-sharing-buttons'),
+                'type' => 'yes_no_button',
+                'option_category' => 'configuration',
+                'options' => array(
+                    'on' => esc_html__('Yes', 'owl-social-sharing-buttons'),
+                    'off' => esc_html__('No', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'off',
+                'toggle_slug' => 'networks',
+            ),
+            'xing' => array(
+                'label' => esc_html__('Xing', 'owl-social-sharing-buttons'),
+                'type' => 'yes_no_button',
+                'option_category' => 'configuration',
+                'options' => array(
+                    'on' => esc_html__('Yes', 'owl-social-sharing-buttons'),
+                    'off' => esc_html__('No', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'off',
+                'toggle_slug' => 'networks',
+            ),
             'email' => array(
                 'label' => esc_html__('Email', 'owl-social-sharing-buttons'),
                 'type' => 'yes_no_button',
@@ -217,7 +272,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'default' => 'off',
                 'toggle_slug' => 'networks',
             ),
-            
+
             // Display Settings
             'button_style' => array(
                 'label' => esc_html__('Button Style', 'owl-social-sharing-buttons'),
@@ -314,7 +369,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'default' => 'left',
                 'toggle_slug' => 'display',
             ),
-            
+
             // Advanced Settings
             'custom_css_class' => array(
                 'label' => esc_html__('Custom CSS Class', 'owl-social-sharing-buttons'),
@@ -474,7 +529,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $custom_title = $this->props['custom_title'];
         $custom_description = $this->props['custom_description'];
         $custom_image = $this->props['custom_image'];
-        
+
         // Network options
         $networks = array(
             'facebook' => array(
@@ -525,6 +580,36 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'icon' => 'fab fa-telegram-plane',
                 'url' => 'https://t.me/share/url?url={url}&text={title}'
             ),
+            'viber' => array(
+                'enabled' => $this->props['viber'] === 'on',
+                'name' => 'Viber',
+                'icon' => 'fab fa-viber',
+                'url' => 'viber://forward?text={title}%20{url}'
+            ),
+            'skype' => array(
+                'enabled' => $this->props['skype'] === 'on',
+                'name' => 'Skype',
+                'icon' => 'fab fa-skype',
+                'url' => 'https://web.skype.com/share?url={url}&text={title}'
+            ),
+            'messenger' => array(
+                'enabled' => $this->props['messenger'] === 'on',
+                'name' => 'Messenger',
+                'icon' => 'fab fa-facebook-messenger',
+                'url' => 'https://www.facebook.com/dialog/send?app_id=794927004237856&link={url}&redirect_uri={url}'
+            ),
+            'vk' => array(
+                'enabled' => $this->props['vk'] === 'on',
+                'name' => 'VK',
+                'icon' => 'fab fa-vk',
+                'url' => 'https://vk.com/share.php?url={url}&title={title}&description={description}&image={image}'
+            ),
+            'xing' => array(
+                'enabled' => $this->props['xing'] === 'on',
+                'name' => 'Xing',
+                'icon' => 'fab fa-xing',
+                'url' => 'https://www.xing.com/app/user?op=share&url={url}'
+            ),
             'email' => array(
                 'enabled' => $this->props['email'] === 'on',
                 'name' => 'Email',
@@ -538,7 +623,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'url' => 'javascript:window.print()'
             ),
         );
-        
+
         // Display settings
         $button_style = $this->props['button_style'];
         $button_shape = $this->props['button_shape'];
@@ -548,7 +633,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $show_count = $this->props['show_count'] === 'on';
         $hover_animation = $this->props['hover_animation'];
         $alignment = $this->get_text_orientation_classname($this->props['alignment']);
-        
+
         // Advanced settings
         $custom_css_class = $this->props['custom_css_class'];
         $use_original_colors = $this->props['use_original_colors'] === 'on';
@@ -561,7 +646,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $label_font_size = $this->props['label_font_size'];
         $open_in_new_tab = $this->props['open_in_new_tab'] === 'on';
         $add_rel_nofollow = $this->props['add_rel_nofollow'] === 'on';
-        
+
         // Generate CSS classes
         $classes = array(
             'owl-social-share-buttons',
@@ -570,83 +655,87 @@ class OwlSocialShareButton extends ET_Builder_Module {
             'size-' . $button_size,
             'layout-' . $button_layout,
             'hover-' . $hover_animation,
-            $alignment,
         );
-        
+
+        // Add alignment class
+        if ($alignment) {
+            $classes[] = $alignment;
+        }
+
         if ($show_label) {
             $classes[] = 'show-label';
         }
-        
+
         if ($show_count) {
             $classes[] = 'show-count';
         }
-        
+
         if ($use_original_colors) {
             $classes[] = 'original-colors';
         } else {
             $classes[] = 'custom-colors';
         }
-        
+
         if ($custom_css_class) {
             $classes[] = esc_attr($custom_css_class);
         }
-        
+
         // Apply custom styling
         ET_Builder_Element::set_style($render_slug, array(
             'selector' => '%%order_class%% .owl-social-share-button',
             'declaration' => sprintf('margin-right: %1$s; margin-bottom: %1$s;', esc_attr($spacing))
         ));
-        
+
         ET_Builder_Element::set_style($render_slug, array(
             'selector' => '%%order_class%% .owl-social-share-button i',
             'declaration' => sprintf('font-size: %1$s;', esc_attr($icon_font_size))
         ));
-        
+
         if ($show_label) {
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%% .owl-social-share-button span',
                 'declaration' => sprintf('font-size: %1$s;', esc_attr($label_font_size))
             ));
         }
-        
+
         if (!$use_original_colors) {
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors .owl-social-share-button',
                 'declaration' => sprintf('background-color: %1$s; color: %2$s;', esc_attr($custom_color), esc_attr($custom_text_color))
             ));
-            
+
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors .owl-social-share-button:hover',
                 'declaration' => sprintf('background-color: %1$s; color: %2$s;', esc_attr($custom_hover_color), esc_attr($custom_text_hover_color))
             ));
-            
+
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors.style-outlined .owl-social-share-button',
                 'declaration' => sprintf('border-color: %1$s; color: %1$s; background-color: transparent;', esc_attr($custom_color))
             ));
-            
+
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors.style-outlined .owl-social-share-button:hover',
                 'declaration' => sprintf('border-color: %1$s; color: %2$s; background-color: %1$s;', esc_attr($custom_hover_color), esc_attr($custom_text_hover_color))
             ));
-            
+
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors.style-minimal .owl-social-share-button',
                 'declaration' => sprintf('color: %1$s; background-color: transparent;', esc_attr($custom_color))
             ));
-            
+
             ET_Builder_Element::set_style($render_slug, array(
                 'selector' => '%%order_class%%.custom-colors.style-minimal .owl-social-share-button:hover',
                 'declaration' => sprintf('color: %1$s; background-color: transparent;', esc_attr($custom_hover_color))
             ));
         }
-        
+
         // Determine the URL, title, description, and image to share
-        $page_url = $custom_url ? esc_url($custom_url) : esc_url((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-        $page_title = $custom_title ? esc_attr($custom_title) : esc_attr(get_the_title());
-        $page_description = $custom_description ? esc_attr($custom_description) : esc_attr(get_the_excerpt());
-        $page_image = $custom_image ? esc_url($custom_image) : esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
-        
+        $page_url = !empty($custom_url) ? $custom_url : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $page_title = !empty($custom_title) ? $custom_title : (function_exists('get_the_title') ? get_the_title() : 'Share This Page');
+        $page_description = !empty($custom_description) ? $custom_description : (function_exists('get_the_excerpt') ? get_the_excerpt() : 'Check out this page');
+        $page_image = !empty($custom_image) ? $custom_image : (function_exists('get_the_post_thumbnail_url') && function_exists('get_the_ID') ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '');
+
         // HTML attributes for links
         $link_attrs = '';
         if ($open_in_new_tab) {
@@ -655,18 +744,18 @@ class OwlSocialShareButton extends ET_Builder_Module {
         if ($add_rel_nofollow) {
             $link_attrs .= ' rel="nofollow"';
         }
-        
+
         // Build the HTML output
         $output = sprintf('<div class="%1$s">', esc_attr(implode(' ', $classes)));
-        
+
         // Add title if enabled
         if ($show_title && !empty($title)) {
             $output .= sprintf('<h3 class="owl-social-share-title">%1$s</h3>', esc_html($title));
         }
-        
+
         // Add buttons container
         $output .= '<div class="owl-social-share-buttons-container">';
-        
+
         // Generate buttons for enabled networks
         foreach ($networks as $network_id => $network) {
             if ($network['enabled']) {
@@ -676,17 +765,17 @@ class OwlSocialShareButton extends ET_Builder_Module {
                     array(rawurlencode($page_url), rawurlencode($page_title), rawurlencode($page_description), rawurlencode($page_image)),
                     $network['url']
                 );
-                
+
                 $button_content = sprintf('<i class="%1$s" aria-hidden="true"></i>', esc_attr($network['icon']));
-                
+
                 if ($show_label) {
                     $button_content .= sprintf('<span>%1$s</span>', esc_html($network['name']));
                 }
-                
+
                 if ($show_count) {
                     $button_content .= sprintf('<span class="owl-social-share-count">0</span>');
                 }
-                
+
                 $output .= sprintf(
                     '<a href="%1$s" class="owl-social-share-button owl-social-share-%2$s"%3$s>%4$s</a>',
                     esc_url($share_url),
@@ -696,10 +785,10 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 );
             }
         }
-        
+
         $output .= '</div>'; // Close buttons container
         $output .= '</div>'; // Close main container
-        
+
         // Add inline script for share counts if enabled
         if ($show_count) {
             $output .= '<script>
@@ -710,7 +799,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 });
             </script>';
         }
-        
+
         return $output;
     }
 }

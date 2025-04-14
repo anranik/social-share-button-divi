@@ -236,6 +236,26 @@
     background-color: #6d6d6d;
 }
 
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-vk {
+    background-color: #4a76a8;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-xing {
+    background-color: #026466;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-pocket {
+    background-color: #ef4056;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-skype {
+    background-color: #00aff0;
+}
+
+.owl-social-share-buttons.original-colors.style-filled .owl-social-share-viber {
+    background-color: #665cac;
+}
+
 /* Original Colors for Outlined Style */
 .owl-social-share-buttons.original-colors.style-outlined .owl-social-share-facebook {
     color: #3b5998;
@@ -285,6 +305,31 @@
 .owl-social-share-buttons.original-colors.style-outlined .owl-social-share-print {
     color: #6d6d6d;
     border-color: #6d6d6d;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-vk {
+    color: #4a76a8;
+    border-color: #4a76a8;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-xing {
+    color: #026466;
+    border-color: #026466;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-pocket {
+    color: #ef4056;
+    border-color: #ef4056;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-skype {
+    color: #00aff0;
+    border-color: #00aff0;
+}
+
+.owl-social-share-buttons.original-colors.style-outlined .owl-social-share-viber {
+    color: #665cac;
+    border-color: #665cac;
 }
 
 /* Original Colors for Minimal Style */
