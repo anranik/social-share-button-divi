@@ -19,7 +19,26 @@ class OwlSocialShareButton extends Component {
     if (this.props.show_count === "on") {
       this.fetchShareCounts();
     }
+
+    // Handle print button click
+    const printButtons = document.querySelectorAll(".owl-social-share-print");
+    printButtons.forEach((button) => {
+      button.addEventListener("click", this.handlePrint);
+    });
   }
+
+  componentWillUnmount() {
+    // Cleanup event listeners
+    const printButtons = document.querySelectorAll(".owl-social-share-print");
+    printButtons.forEach((button) => {
+      button.removeEventListener("click", this.handlePrint);
+    });
+  }
+
+  handlePrint = (e) => {
+    e.preventDefault();
+    window.print();
+  };
 
   fetchShareCounts() {
     // This is a placeholder for real API calls to fetch share counts
@@ -109,7 +128,7 @@ class OwlSocialShareButton extends Component {
         enabled: facebook === "on",
         name: "Facebook",
         icon: "fab fa-facebook-f",
-        url: "https://www.facebook.com/sharer/sharer.php?u={url}&quote={title}",
+        url: "https://www.facebook.com/sharer/sharer.php?u={url}&t={title}",
       },
       {
         id: "twitter",
@@ -212,7 +231,7 @@ class OwlSocialShareButton extends Component {
         enabled: print === "on",
         name: "Print",
         icon: "fas fa-print",
-        url: "javascript:window.print()",
+        url: "#",
       },
     ];
 

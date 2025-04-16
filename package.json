@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "divi": "^1.0.0",
     "divi-scripts": "1.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

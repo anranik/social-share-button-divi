@@ -536,7 +536,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'enabled' => $this->props['facebook'] === 'on',
                 'name' => 'Facebook',
                 'icon' => 'fab fa-facebook-f',
-                'url' => 'https://www.facebook.com/sharer/sharer.php?u={url}&quote={title}'
+                'url' => 'https://www.facebook.com/sharer/sharer.php?u={url}&t={title}'
             ),
             'twitter' => array(
                 'enabled' => $this->props['twitter'] === 'on',
@@ -620,7 +620,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'enabled' => $this->props['print'] === 'on',
                 'name' => 'Print',
                 'icon' => 'fas fa-print',
-                'url' => 'javascript:window.print()'
+                'url' => '#' // Will be handled with JavaScript
             ),
         );
 
@@ -632,7 +632,8 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $show_label = $this->props['show_label'] === 'on';
         $show_count = $this->props['show_count'] === 'on';
         $hover_animation = $this->props['hover_animation'];
-        $alignment = $this->get_text_orientation_classname($this->props['alignment']);
+        $text_orientation = isset($this->props['alignment']) ? $this->props['alignment'] : 'left';
+        $text_orientation_class = et_pb_get_alignment($text_orientation);
 
         // Advanced settings
         $custom_css_class = $this->props['custom_css_class'];
@@ -655,12 +656,25 @@ class OwlSocialShareButton extends ET_Builder_Module {
             'size-' . $button_size,
             'layout-' . $button_layout,
             'hover-' . $hover_animation,
+            $text_orientation_class // Add the alignment class here
         );
 
-        // Add alignment class
-        if ($alignment) {
-            $classes[] = $alignment;
-        }
+        // Add CSS for alignment
+        ET_Builder_Element::set_style($render_slug, array(
+            'selector'    => '%%order_class%% .owl-social-share-buttons-container',
+            'declaration' => sprintf('text-align: %1$s;', esc_attr($text_orientation)),
+        ));
+
+        // Add these additional styles
+        ET_Builder_Element::set_style($render_slug, array(
+            'selector'    => '%%order_class%%',
+            'declaration' => 'width: 100%;'
+        ));
+
+        ET_Builder_Element::set_style($render_slug, array(
+            'selector'    => '%%order_class%% .owl-social-share-buttons-container',
+            'declaration' => 'display: block; width: 100%;'
+        ));
 
         if ($show_label) {
             $classes[] = 'show-label';
@@ -789,16 +803,20 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $output .= '</div>'; // Close buttons container
         $output .= '</div>'; // Close main container
 
-        // Add inline script for share counts if enabled
-        if ($show_count) {
-            $output .= '<script>
-                jQuery(document).ready(function($) {
-                    // This is a placeholder for the share count functionality
-                    // You would need to implement API calls to each service to get real counts
-                    // or use a third-party service that provides this data
+        // Add inline script for share counts and print functionality
+        $output .= '<script>
+            jQuery(document).ready(function($) {
+                // Handle print button click
+                $(".owl-social-share-print").on("click", function(e) {
+                    e.preventDefault();
+                    window.print();
                 });
-            </script>';
-        }
+
+                // This is a placeholder for the share count functionality
+                // You would need to implement API calls to each service to get real counts
+                // or use a third-party service that provides this data
+            });
+        </script>';
 
         return $output;
     }
