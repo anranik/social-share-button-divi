@@ -282,7 +282,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                     'filled' => esc_html__('Filled', 'owl-social-sharing-buttons'),
                     'outlined' => esc_html__('Outlined', 'owl-social-sharing-buttons'),
                     'minimal' => esc_html__('Minimal', 'owl-social-sharing-buttons'),
-                    'floating' => esc_html__('Floating', 'owl-social-sharing-buttons'),
+                   // 'floating' => esc_html__('Floating', 'owl-social-sharing-buttons'),
                 ),
                 'default' => 'filled',
                 'toggle_slug' => 'display',

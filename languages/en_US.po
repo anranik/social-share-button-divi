@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Social Share Button Divi 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/social-share-button-divi\n"
-"POT-Creation-Date: 2025-04-16 13:13:10+00:00\n"
+"POT-Creation-Date: 2025-04-16 17:20:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,11 +61,11 @@ msgstr ""
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:247
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:258
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:269
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:331
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:342
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:387
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:481
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:493
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:332
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:343
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:388
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:482
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:494
 msgid "Yes"
 msgstr ""
 
@@ -85,11 +85,11 @@ msgstr ""
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:248
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:259
 #: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:270
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:332
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:343
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:388
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:482
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:494
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:333
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:344
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:389
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:483
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:495
 msgid "No"
 msgstr ""
 
@@ -213,179 +213,175 @@ msgstr ""
 msgid "Minimal"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:285
-msgid "Floating"
-msgstr ""
-
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:291
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:292
 msgid "Button Shape"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:295
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:296
 msgid "Square"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:296
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:297
 msgid "Rounded"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:297
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:298
 msgid "Circle"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:303
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:304
 msgid "Button Size"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:307
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:308
 msgid "Small"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:308
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:309
 msgid "Medium"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:309
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:310
 msgid "Large"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:315
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:316
 msgid "Button Layout"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:319
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:320
 msgid "Horizontal"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:320
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:321
 msgid "Vertical"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:321
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:322
 msgid "Grid"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:327
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:328
 msgid "Show Label"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:338
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:339
 msgid "Show Share Count"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:347
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:348
 msgid "Note: Share count requires API setup for most networks"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:350
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:351
 msgid "Hover Animation"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:354
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:355
 msgid "None"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:355
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:356
 msgid "Grow"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:356
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:357
 msgid "Shrink"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:357
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:358
 msgid "Pulse"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:358
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:359
 msgid "Float"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:359
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:360
 msgid "Rotate"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:365
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:366
 msgid "Alignment"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:375
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:376
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:378
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:379
 msgid "Enter custom CSS class names for this module."
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:383
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:384
 msgid "Use Original Network Colors"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:395
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:396
 msgid "Custom Button Color"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:404
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:405
 msgid "Custom Button Hover Color"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:413
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:414
 msgid "Custom Text Color"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:422
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:423
 msgid "Custom Text Hover Color"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:431
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:432
 msgid "Button Spacing"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:446
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:447
 msgid "Icon Font Size"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:461
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:462
 msgid "Label Font Size"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:477
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:478
 msgid "Open Links in New Tab"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:489
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:490
 msgid "Add rel=\"nofollow\""
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:507
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:508
 msgid "Content"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:508
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:509
 msgid "Networks"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:513
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:514
 msgid "Display Settings"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:514
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:515
 msgid "Styling"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:515
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:516
 msgid "Spacing"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:516
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:517
 msgid "Fonts"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:517
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:518
 msgid "Links"
 msgstr ""
 
-#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:518
+#: includes/modules/OwlSocialShareButton/OwlSocialShareButton.php:519
 msgid "Custom CSS"
 msgstr ""
 
