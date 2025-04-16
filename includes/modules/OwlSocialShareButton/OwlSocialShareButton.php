@@ -287,6 +287,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'default' => 'filled',
                 'toggle_slug' => 'display',
             ),
+            
             'button_shape' => array(
                 'label' => esc_html__('Button Shape', 'owl-social-sharing-buttons'),
                 'type' => 'select',
@@ -762,13 +763,14 @@ class OwlSocialShareButton extends ET_Builder_Module {
         // Build the HTML output
         $output = sprintf('<div class="%1$s">', esc_attr(implode(' ', $classes)));
 
-        // Add title if enabled
-        if ($show_title && !empty($title)) {
-            $output .= sprintf('<h3 class="owl-social-share-title">%1$s</h3>', esc_html($title));
-        }
+       
 
         // Add buttons container
         $output .= '<div class="owl-social-share-buttons-container">';
+         // Add title if enabled
+         if ($show_title && !empty($title)) {
+            $output .= sprintf('<h3 class="owl-social-share-title">%1$s</h3>', esc_html($title));
+        }
 
         // Generate buttons for enabled networks
         foreach ($networks as $network_id => $network) {
