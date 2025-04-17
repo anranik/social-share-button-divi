@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Social Share Button Divi
-Plugin URI:  https://owlpixel.com
+Plugin URI:  https://owlpixel.com/social-share-button-divi
 Description: A divi extension for social share button integration
 Version:     1.0.0
 Author:      Owlpixel

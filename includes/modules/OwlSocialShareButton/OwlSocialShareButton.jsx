@@ -102,6 +102,8 @@ class OwlSocialShareButton extends Component {
       button_shape,
       button_size,
       button_layout,
+      floating_position,
+      mobile_floating_position,
       show_label,
       show_count,
       hover_animation,
@@ -247,7 +249,7 @@ class OwlSocialShareButton extends Component {
       show_label === "on" ? "show-label" : "",
       show_count === "on" ? "show-count" : "",
       use_original_colors === "on" ? "original-colors" : "custom-colors",
-      custom_css_class || "",
+      custom_css_class || ""
     ]
       .filter(Boolean)
       .join(" ");

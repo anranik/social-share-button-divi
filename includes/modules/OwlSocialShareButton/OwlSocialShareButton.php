@@ -282,7 +282,6 @@ class OwlSocialShareButton extends ET_Builder_Module {
                     'filled' => esc_html__('Filled', 'owl-social-sharing-buttons'),
                     'outlined' => esc_html__('Outlined', 'owl-social-sharing-buttons'),
                     'minimal' => esc_html__('Minimal', 'owl-social-sharing-buttons'),
-                   // 'floating' => esc_html__('Floating', 'owl-social-sharing-buttons'),
                 ),
                 'default' => 'filled',
                 'toggle_slug' => 'display',
@@ -364,11 +363,65 @@ class OwlSocialShareButton extends ET_Builder_Module {
             ),
             'alignment' => array(
                 'label' => esc_html__('Alignment', 'owl-social-sharing-buttons'),
-                'type' => 'text_align',
+                'type' => 'select',
                 'option_category' => 'layout',
-                'options' => et_builder_get_text_orientation_options(['justified']),
+                'options' => array(
+                    'left' => esc_html__('Left', 'owl-social-sharing-buttons'),
+                    'center' => esc_html__('Center', 'owl-social-sharing-buttons'),
+                    'right' => esc_html__('Right', 'owl-social-sharing-buttons'),
+                    'left_top_fixed' => esc_html__('Left Top (Fixed)', 'owl-social-sharing-buttons'),
+                    'left_center_fixed' => esc_html__('Left Center (Fixed)', 'owl-social-sharing-buttons'),
+                    'left_bottom_fixed' => esc_html__('Left Bottom (Fixed)', 'owl-social-sharing-buttons'),
+                    'right_top_fixed' => esc_html__('Right Top (Fixed)', 'owl-social-sharing-buttons'),
+                    'right_center_fixed' => esc_html__('Right Center (Fixed)', 'owl-social-sharing-buttons'),
+                    'right_bottom_fixed' => esc_html__('Right Bottom (Fixed)', 'owl-social-sharing-buttons'),
+                ),
                 'default' => 'left',
                 'toggle_slug' => 'display',
+            ),
+            'mobile_position' => array(
+                'label' => esc_html__('Mobile Position', 'owl-social-sharing-buttons'),
+                'type' => 'select',
+                'option_category' => 'layout',
+                'options' => array(
+                    'default' => esc_html__('Same as Desktop', 'owl-social-sharing-buttons'),
+                    'bottom_fixed' => esc_html__('Bottom Fixed', 'owl-social-sharing-buttons'),
+                    'top_fixed' => esc_html__('Top Fixed', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'bottom_fixed',
+                'toggle_slug' => 'display',
+                'show_if_not' => array('alignment' => array('left', 'center', 'right')),
+            ),
+
+            'floating_position' => array(
+                'label' => esc_html__('Floating Position', 'owl-social-sharing-buttons'),
+                'type' => 'select',
+                'option_category' => 'layout',
+                'options' => array(
+                    'left_top' => esc_html__('Left Top', 'owl-social-sharing-buttons'),
+                    'left_center' => esc_html__('Left Center', 'owl-social-sharing-buttons'),
+                    'left_bottom' => esc_html__('Left Bottom', 'owl-social-sharing-buttons'),
+                    'right_top' => esc_html__('Right Top', 'owl-social-sharing-buttons'),
+                    'right_center' => esc_html__('Right Center', 'owl-social-sharing-buttons'),
+                    'right_bottom' => esc_html__('Right Bottom', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'left_center',
+                'toggle_slug' => 'display',
+                'show_if' => array('button_style' => 'floating'),
+            ),
+
+            'mobile_floating_position' => array(
+                'label' => esc_html__('Mobile Floating Position', 'owl-social-sharing-buttons'),
+                'type' => 'select',
+                'option_category' => 'layout',
+                'options' => array(
+                    'default' => esc_html__('Same as Desktop', 'owl-social-sharing-buttons'),
+                    'bottom_fixed' => esc_html__('Bottom Fixed', 'owl-social-sharing-buttons'),
+                    'top_fixed' => esc_html__('Top Fixed', 'owl-social-sharing-buttons'),
+                ),
+                'default' => 'bottom_fixed',
+                'toggle_slug' => 'display',
+                'show_if' => array('button_style' => 'floating'),
             ),
 
             // Advanced Settings
@@ -633,8 +686,32 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $show_label = $this->props['show_label'] === 'on';
         $show_count = $this->props['show_count'] === 'on';
         $hover_animation = $this->props['hover_animation'];
-        $text_orientation = isset($this->props['alignment']) ? $this->props['alignment'] : 'left';
-        $text_orientation_class = et_pb_get_alignment($text_orientation);
+        $alignment = isset($this->props['alignment']) ? $this->props['alignment'] : 'left';
+        $mobile_position = isset($this->props['mobile_position']) ? $this->props['mobile_position'] : 'bottom_fixed';
+
+        // Generate CSS classes
+        $classes = array(
+            'owl-social-share-buttons',
+            'style-' . $button_style,
+            'shape-' . $button_shape,
+            'size-' . $button_size,
+            'layout-' . $button_layout,
+            'hover-' . $hover_animation
+        );
+
+        // Fixed position alignment needs specific handling
+        $is_fixed_position = in_array($alignment, array(
+            'left_top_fixed', 'left_center_fixed', 'left_bottom_fixed',
+            'right_top_fixed', 'right_center_fixed', 'right_bottom_fixed'
+        ));
+
+        // Apply mobile position class if it's a fixed position and mobile position is set
+        if ($is_fixed_position && $mobile_position !== 'default') {
+            $classes[] = 'mobile-' . $mobile_position;
+        }
+
+        // Add proper text alignment class
+        $classes[] = 'et_pb_text_align_' . $alignment;
 
         // Advanced settings
         $custom_css_class = $this->props['custom_css_class'];
@@ -648,23 +725,6 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $label_font_size = $this->props['label_font_size'];
         $open_in_new_tab = $this->props['open_in_new_tab'] === 'on';
         $add_rel_nofollow = $this->props['add_rel_nofollow'] === 'on';
-
-        // Generate CSS classes
-        $classes = array(
-            'owl-social-share-buttons',
-            'style-' . $button_style,
-            'shape-' . $button_shape,
-            'size-' . $button_size,
-            'layout-' . $button_layout,
-            'hover-' . $hover_animation,
-            $text_orientation_class // Add the alignment class here
-        );
-
-        // Add CSS for alignment
-        ET_Builder_Element::set_style($render_slug, array(
-            'selector'    => '%%order_class%% .owl-social-share-buttons-container',
-            'declaration' => sprintf('text-align: %1$s;', esc_attr($text_orientation)),
-        ));
 
         // Add these additional styles
         ET_Builder_Element::set_style($render_slug, array(
