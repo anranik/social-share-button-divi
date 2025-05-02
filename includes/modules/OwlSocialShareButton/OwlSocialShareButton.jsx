@@ -11,6 +11,7 @@ class OwlSocialShareButton extends Component {
     super(props);
     this.state = {
       shareCounts: {},
+      hoveredButtons: {},
     };
   }
 
@@ -38,6 +39,24 @@ class OwlSocialShareButton extends Component {
   handlePrint = (e) => {
     e.preventDefault();
     window.print();
+  };
+
+  handleMouseEnter = (networkId) => {
+    this.setState((prevState) => ({
+      hoveredButtons: {
+        ...prevState.hoveredButtons,
+        [networkId]: true,
+      },
+    }));
+  };
+
+  handleMouseLeave = (networkId) => {
+    this.setState((prevState) => ({
+      hoveredButtons: {
+        ...prevState.hoveredButtons,
+        [networkId]: false,
+      },
+    }));
   };
 
   fetchShareCounts() {
@@ -249,7 +268,7 @@ class OwlSocialShareButton extends Component {
       show_label === "on" ? "show-label" : "",
       show_count === "on" ? "show-count" : "",
       use_original_colors === "on" ? "original-colors" : "custom-colors",
-      custom_css_class || ""
+      custom_css_class || "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -292,11 +311,17 @@ class OwlSocialShareButton extends Component {
 
     // Custom colors inline styles
     let customStyles = {};
+    let customHoverStyles = {};
+
     if (use_original_colors !== "on") {
       if (button_style === "filled") {
         customStyles = {
           backgroundColor: custom_color,
           color: custom_text_color,
+        };
+        customHoverStyles = {
+          backgroundColor: custom_hover_color,
+          color: custom_text_hover_color,
         };
       } else if (button_style === "outlined") {
         customStyles = {
@@ -304,9 +329,18 @@ class OwlSocialShareButton extends Component {
           color: custom_color,
           backgroundColor: "transparent",
         };
+        customHoverStyles = {
+          borderColor: custom_hover_color,
+          color: custom_text_hover_color,
+          backgroundColor: custom_hover_color,
+        };
       } else if (button_style === "minimal") {
         customStyles = {
           color: custom_color,
+          backgroundColor: "transparent",
+        };
+        customHoverStyles = {
+          color: custom_hover_color,
           backgroundColor: "transparent",
         };
       }
@@ -336,8 +370,15 @@ class OwlSocialShareButton extends Component {
                   key={network.id}
                   href={shareUrl}
                   className={`owl-social-share-button owl-social-share-${network.id}`}
-                  style={{ ...buttonStyle, ...customStyles }}
+                  style={{
+                    ...buttonStyle,
+                    ...(this.state.hoveredButtons[network.id]
+                      ? customHoverStyles
+                      : customStyles),
+                  }}
                   {...linkAttrs}
+                  onMouseEnter={() => this.handleMouseEnter(network.id)}
+                  onMouseLeave={() => this.handleMouseLeave(network.id)}
                 >
                   <i
                     className={network.icon}

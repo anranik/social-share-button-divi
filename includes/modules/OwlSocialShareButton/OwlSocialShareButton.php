@@ -20,16 +20,19 @@ class OwlSocialShareButton extends ET_Builder_Module {
     public $slug = 'owl_social_share_button';
     public $vb_support = 'on';
     public $main_css_element = '%%order_class%%';
+    public $icon_path = '';
+    public $category = 'Social';
+    public $help_videos = array();
 
     protected $module_credits = array(
-        'module_uri' => 'https://owlpixel.com/social-share-button-divi/',
-        'author' => 'Owlpixel',
-        'author_uri' => 'https://owlpixel.com',
+        'module_uri' => 'https://your-website.com/owl-social-sharing-buttons-for-divi',
+        'author' => 'Your Name',
+        'author_uri' => 'https://your-website.com',
     );
 
     public function init() {
         $this->name = esc_html__('Owl Social Share Buttons', 'owl-social-sharing-buttons');
-        $this->icon_path = plugin_dir_path(__FILE__) . 'icon.svg';
+        $this->icon = 'share';
         $this->category = esc_html__('Social', 'owl-social-sharing-buttons');
 
         // Load CSS
@@ -575,7 +578,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         );
     }
 
-    public function render($unprocessed_props, $content = null, $render_slug) {
+    public function render($unprocessed_props, $render_slug, $content = null) {
         // Process props
         $title = $this->props['title'];
         $show_title = $this->props['show_title'] === 'on';
@@ -773,49 +776,52 @@ class OwlSocialShareButton extends ET_Builder_Module {
             ));
         }
 
-        if (!$use_original_colors) {
+        // Apply custom styling for colors
+        if (true) {
+            // Add the custom CSS classes
+            $classes[] = 'custom-colors';
+            
+            // Define base styles for button appearance
             ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors .owl-social-share-button',
-                'declaration' => sprintf('background-color: %1$s; color: %2$s;', esc_attr($custom_color), esc_attr($custom_text_color))
+                'selector' => '%%order_class%% .owl-social-share-button',
+                'declaration' => 'background-color: ' . esc_attr($custom_color) . ' !important; color: ' . esc_attr($custom_text_color) . ' !important;'
             ));
 
+            // Hover styles
             ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors .owl-social-share-button:hover',
-                'declaration' => sprintf('background-color: %1$s; color: %2$s;', esc_attr($custom_hover_color), esc_attr($custom_text_hover_color))
+                'selector' => '%%order_class%% .owl-social-share-button:hover',
+                'declaration' => 'background-color: ' . esc_attr($custom_hover_color) . ' !important; color: ' . esc_attr($custom_text_hover_color) . ' !important;'
             ));
 
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors.style-outlined .owl-social-share-button',
-                'declaration' => sprintf('border-color: %1$s; color: %1$s; background-color: transparent;', esc_attr($custom_color))
-            ));
+            // Apply specific styles based on button style
+            if ($button_style === 'outlined') {
+                ET_Builder_Element::set_style($render_slug, array(
+                    'selector' => '%%order_class%% .owl-social-share-button',
+                    'declaration' => 'border: 2px solid ' . esc_attr($custom_color) . ' !important; color: ' . esc_attr($custom_color) . ' !important; background-color: transparent !important;'
+                ));
 
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors.style-outlined .owl-social-share-button:hover',
-                'declaration' => sprintf('border-color: %1$s; color: %2$s; background-color: %1$s;', esc_attr($custom_hover_color), esc_attr($custom_text_hover_color))
-            ));
+                ET_Builder_Element::set_style($render_slug, array(
+                    'selector' => '%%order_class%% .owl-social-share-button:hover',
+                    'declaration' => 'border-color: ' . esc_attr($custom_hover_color) . ' !important; background-color: ' . esc_attr($custom_hover_color) . ' !important; color: ' . esc_attr($custom_text_hover_color) . ' !important;'
+                ));
+            } else if ($button_style === 'minimal') {
+                ET_Builder_Element::set_style($render_slug, array(
+                    'selector' => '%%order_class%% .owl-social-share-button',
+                    'declaration' => 'color: ' . esc_attr($custom_color) . ' !important; background-color: transparent !important; border: none !important;'
+                ));
 
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors.style-minimal .owl-social-share-button',
-                'declaration' => sprintf('color: %1$s; background-color: transparent;', esc_attr($custom_color))
-            ));
-
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%%.custom-colors.style-minimal .owl-social-share-button:hover',
-                'declaration' => sprintf('color: %1$s; background-color: transparent;', esc_attr($custom_hover_color))
-            ));
+                ET_Builder_Element::set_style($render_slug, array(
+                    'selector' => '%%order_class%% .owl-social-share-button:hover',
+                    'declaration' => 'color: ' . esc_attr($custom_hover_color) . ' !important; background-color: transparent !important;'
+                ));
+            }
+        } else {
+            // Remove custom color class if original colors are used
+            $classes[] = 'original-colors';
         }
 
         // Determine the URL, title, description, and image to share
-        // Use WordPress functions when available
-        if (function_exists('get_permalink') && is_singular()) {
-            $page_url = !empty($custom_url) ? esc_url($custom_url) : get_permalink();
-        } else {
-            // Fallback with proper sanitization
-            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-            $host = isset($_SERVER['HTTP_HOST']) ? sanitize_text_field($_SERVER['HTTP_HOST']) : '';
-            $request_uri = isset($_SERVER['REQUEST_URI']) ? esc_url_raw($_SERVER['REQUEST_URI']) : '';
-            $page_url = !empty($custom_url) ? esc_url($custom_url) : $protocol . "://" . $host . $request_uri;
-        }
+        $page_url = !empty($custom_url) ? $custom_url : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $page_title = !empty($custom_title) ? $custom_title : (function_exists('get_the_title') ? get_the_title() : 'Share This Page');
         $page_description = !empty($custom_description) ? $custom_description : (function_exists('get_the_excerpt') ? get_the_excerpt() : 'Check out this page');
         $page_image = !empty($custom_image) ? $custom_image : (function_exists('get_the_post_thumbnail_url') && function_exists('get_the_ID') ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '');
