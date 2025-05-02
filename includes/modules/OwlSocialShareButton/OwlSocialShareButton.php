@@ -587,7 +587,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
      *
      * @return string
      */
-    public function render( $unprocessed_props, $content = null, $render_slug ) {
+    public function render( $attrs, $content = null, $render_slug ) {
         // Process props
         $title = $this->props['title'];
         $show_title = $this->props['show_title'] === 'on';
@@ -781,17 +781,22 @@ class OwlSocialShareButton extends ET_Builder_Module {
         // Define container styles for buttons
         $buttons_container_style = 'display: flex; flex-wrap: wrap; width: 100%;';
         
-        // Apply alignment styles
+        // Apply alignment directly to container and buttons container
         if ($alignment === 'center') {
-            $buttons_container_style .= ' justify-content: center; text-align: center;';
+            $container_style .= ' text-align: center;';
+            $buttons_container_style .= ' margin: 0 auto; justify-content: center;';
             $classes[] = 'et_pb_text_align_center';
         } else if ($alignment === 'right') {
-            $buttons_container_style .= ' justify-content: flex-end; text-align: right;';
+            $container_style .= ' text-align: right;';
+            $buttons_container_style .= ' margin-left: auto; justify-content: flex-end;';
             $classes[] = 'et_pb_text_align_right';
         } else {
-            $buttons_container_style .= ' justify-content: flex-start; text-align: left;';
+            $container_style .= ' text-align: left;';
+            $buttons_container_style .= ' margin-right: auto; justify-content: flex-start;';
             $classes[] = 'et_pb_text_align_left';
         }
+
+        print_r($this->props);
 
         // Handle fixed positioning alignments
         if (strpos($alignment, '_fixed') !== false) {
