@@ -578,7 +578,16 @@ class OwlSocialShareButton extends ET_Builder_Module {
         );
     }
 
-    public function render($unprocessed_props, $render_slug, $content = null) {
+    /**
+     * Renders the module output.
+     *
+     * @param  array  $attrs       List of attributes.
+     * @param  string $content     Content being processed.
+     * @param  string $render_slug Slug of module that is used for rendering output.
+     *
+     * @return string
+     */
+    public function render( $unprocessed_props, $content = null, $render_slug ) {
         // Process props
         $title = $this->props['title'];
         $show_title = $this->props['show_title'] === 'on';
@@ -593,91 +602,106 @@ class OwlSocialShareButton extends ET_Builder_Module {
                 'enabled' => $this->props['facebook'] === 'on',
                 'name' => 'Facebook',
                 'icon' => 'fab fa-facebook-f',
-                'url' => 'https://www.facebook.com/sharer/sharer.php?u={url}&t={title}'
+                'url' => 'https://www.facebook.com/sharer/sharer.php?u={url}&t={title}',
+                'color' => '#3b5998'
             ),
             'twitter' => array(
                 'enabled' => $this->props['twitter'] === 'on',
                 'name' => 'Twitter',
                 'icon' => 'fab fa-twitter',
-                'url' => 'https://twitter.com/intent/tweet?url={url}&text={title}'
+                'url' => 'https://twitter.com/intent/tweet?url={url}&text={title}',
+                'color' => '#1da1f2'
             ),
             'linkedin' => array(
                 'enabled' => $this->props['linkedin'] === 'on',
                 'name' => 'LinkedIn',
                 'icon' => 'fab fa-linkedin-in',
-                'url' => 'https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={description}'
+                'url' => 'https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={description}',
+                'color' => '#0077b5'
             ),
             'pinterest' => array(
                 'enabled' => $this->props['pinterest'] === 'on',
                 'name' => 'Pinterest',
                 'icon' => 'fab fa-pinterest-p',
-                'url' => 'https://pinterest.com/pin/create/button/?url={url}&media={image}&description={title}'
+                'url' => 'https://pinterest.com/pin/create/button/?url={url}&media={image}&description={title}',
+                'color' => '#e60023'
             ),
             'reddit' => array(
                 'enabled' => $this->props['reddit'] === 'on',
                 'name' => 'Reddit',
                 'icon' => 'fab fa-reddit-alien',
-                'url' => 'https://reddit.com/submit?url={url}&title={title}'
+                'url' => 'https://reddit.com/submit?url={url}&title={title}',
+                'color' => '#ff4500'
             ),
             'tumblr' => array(
                 'enabled' => $this->props['tumblr'] === 'on',
                 'name' => 'Tumblr',
                 'icon' => 'fab fa-tumblr',
-                'url' => 'https://www.tumblr.com/share/link?url={url}&name={title}&description={description}'
+                'url' => 'https://www.tumblr.com/share/link?url={url}&name={title}&description={description}',
+                'color' => '#35465c'
             ),
             'whatsapp' => array(
                 'enabled' => $this->props['whatsapp'] === 'on',
                 'name' => 'WhatsApp',
                 'icon' => 'fab fa-whatsapp',
-                'url' => 'https://api.whatsapp.com/send?text={title}%20{url}'
+                'url' => 'https://api.whatsapp.com/send?text={title}%20{url}',
+                'color' => '#25d366'
             ),
             'telegram' => array(
                 'enabled' => $this->props['telegram'] === 'on',
                 'name' => 'Telegram',
                 'icon' => 'fab fa-telegram-plane',
-                'url' => 'https://t.me/share/url?url={url}&text={title}'
+                'url' => 'https://t.me/share/url?url={url}&text={title}',
+                'color' => '#0088cc'
             ),
             'viber' => array(
                 'enabled' => $this->props['viber'] === 'on',
                 'name' => 'Viber',
                 'icon' => 'fab fa-viber',
-                'url' => 'viber://forward?text={title}%20{url}'
+                'url' => 'viber://forward?text={title}%20{url}',
+                'color' => '#665cac'
             ),
             'skype' => array(
                 'enabled' => $this->props['skype'] === 'on',
                 'name' => 'Skype',
                 'icon' => 'fab fa-skype',
-                'url' => 'https://web.skype.com/share?url={url}&text={title}'
+                'url' => 'https://web.skype.com/share?url={url}&text={title}',
+                'color' => '#00aff0'
             ),
             'messenger' => array(
                 'enabled' => $this->props['messenger'] === 'on',
                 'name' => 'Messenger',
                 'icon' => 'fab fa-facebook-messenger',
-                'url' => 'https://www.facebook.com/dialog/send?app_id=794927004237856&link={url}&redirect_uri={url}'
+                'url' => 'https://www.facebook.com/dialog/send?app_id=794927004237856&link={url}&redirect_uri={url}',
+                'color' => '#0078ff'
             ),
             'vk' => array(
                 'enabled' => $this->props['vk'] === 'on',
                 'name' => 'VK',
                 'icon' => 'fab fa-vk',
-                'url' => 'https://vk.com/share.php?url={url}&title={title}&description={description}&image={image}'
+                'url' => 'https://vk.com/share.php?url={url}&title={title}&description={description}&image={image}',
+                'color' => '#4a76a8'
             ),
             'xing' => array(
                 'enabled' => $this->props['xing'] === 'on',
                 'name' => 'Xing',
                 'icon' => 'fab fa-xing',
-                'url' => 'https://www.xing.com/app/user?op=share&url={url}'
+                'url' => 'https://www.xing.com/app/user?op=share&url={url}',
+                'color' => '#026466'
             ),
             'email' => array(
                 'enabled' => $this->props['email'] === 'on',
                 'name' => 'Email',
                 'icon' => 'fas fa-envelope',
-                'url' => 'mailto:?subject={title}&body={description}%20{url}'
+                'url' => 'mailto:?subject={title}&body={description}%20{url}',
+                'color' => '#ea4335'
             ),
             'print' => array(
                 'enabled' => $this->props['print'] === 'on',
                 'name' => 'Print',
                 'icon' => 'fas fa-print',
-                'url' => '#' // Will be handled with JavaScript
+                'url' => '#',
+                'color' => '#6d6d6d'
             ),
         );
 
@@ -692,30 +716,6 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $alignment = isset($this->props['alignment']) ? $this->props['alignment'] : 'left';
         $mobile_position = isset($this->props['mobile_position']) ? $this->props['mobile_position'] : 'bottom_fixed';
 
-        // Generate CSS classes
-        $classes = array(
-            'owl-social-share-buttons',
-            'style-' . $button_style,
-            'shape-' . $button_shape,
-            'size-' . $button_size,
-            'layout-' . $button_layout,
-            'hover-' . $hover_animation
-        );
-
-        // Fixed position alignment needs specific handling
-        $is_fixed_position = in_array($alignment, array(
-            'left_top_fixed', 'left_center_fixed', 'left_bottom_fixed',
-            'right_top_fixed', 'right_center_fixed', 'right_bottom_fixed'
-        ));
-
-        // Apply mobile position class if it's a fixed position and mobile position is set
-        if ($is_fixed_position && $mobile_position !== 'default') {
-            $classes[] = 'mobile-' . $mobile_position;
-        }
-
-        // Add proper text alignment class
-        $classes[] = 'et_pb_text_align_' . $alignment;
-
         // Advanced settings
         $custom_css_class = $this->props['custom_css_class'];
         $use_original_colors = $this->props['use_original_colors'] === 'on';
@@ -729,16 +729,14 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $open_in_new_tab = $this->props['open_in_new_tab'] === 'on';
         $add_rel_nofollow = $this->props['add_rel_nofollow'] === 'on';
 
-        // Add these additional styles
-        ET_Builder_Element::set_style($render_slug, array(
-            'selector'    => '%%order_class%%',
-            'declaration' => 'width: 100%;'
-        ));
-
-        ET_Builder_Element::set_style($render_slug, array(
-            'selector'    => '%%order_class%% .owl-social-share-buttons-container',
-            'declaration' => 'display: block; width: 100%;'
-        ));
+        // Generate CSS classes - keep these minimal
+        $classes = array(
+            'owl-social-share-buttons',
+            'style-' . $button_style,
+            'shape-' . $button_shape,
+            'layout-' . $button_layout,
+            'hover-' . $hover_animation
+        );
 
         if ($show_label) {
             $classes[] = 'show-label';
@@ -754,77 +752,122 @@ class OwlSocialShareButton extends ET_Builder_Module {
             $classes[] = 'custom-colors';
         }
 
-        if ($custom_css_class) {
-            $classes[] = esc_attr($custom_css_class);
+        // Base styles for buttons based on size
+        $button_height = '40px'; // medium default
+        $button_padding = '0 15px';
+        $button_min_width = '100px';
+        
+        if ($button_size === 'small') {
+            $button_height = '30px';
+            $button_padding = '0 10px';
+            $button_min_width = '80px';
+        } else if ($button_size === 'large') {
+            $button_height = '50px';
+            $button_padding = '0 20px';
+            $button_min_width = '120px';
         }
 
-        // Apply custom styling
-        ET_Builder_Element::set_style($render_slug, array(
-            'selector' => '%%order_class%% .owl-social-share-button',
-            'declaration' => sprintf('margin-right: %1$s; margin-bottom: %1$s;', esc_attr($spacing))
-        ));
-
-        ET_Builder_Element::set_style($render_slug, array(
-            'selector' => '%%order_class%% .owl-social-share-button i',
-            'declaration' => sprintf('font-size: %1$s;', esc_attr($icon_font_size))
-        ));
-
-        if ($show_label) {
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%% .owl-social-share-button span',
-                'declaration' => sprintf('font-size: %1$s;', esc_attr($label_font_size))
-            ));
+        // Button radius based on shape
+        $button_radius = '4px'; // rounded default
+        if ($button_shape === 'square') {
+            $button_radius = '0';
+        } else if ($button_shape === 'circle') {
+            $button_radius = '50px';
         }
 
-        // Apply custom styling for colors
-        if (true) {
-            // Add the custom CSS classes
-            $classes[] = 'custom-colors';
-            
-            // Define base styles for button appearance
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%% .owl-social-share-button',
-                'declaration' => 'background-color: ' . esc_attr($custom_color) . ' !important; color: ' . esc_attr($custom_text_color) . ' !important;'
-            ));
+        // Define container styles
+        $container_style = 'width: 100%;';
 
-            // Hover styles
-            ET_Builder_Element::set_style($render_slug, array(
-                'selector' => '%%order_class%% .owl-social-share-button:hover',
-                'declaration' => 'background-color: ' . esc_attr($custom_hover_color) . ' !important; color: ' . esc_attr($custom_text_hover_color) . ' !important;'
-            ));
-
-            // Apply specific styles based on button style
-            if ($button_style === 'outlined') {
-                ET_Builder_Element::set_style($render_slug, array(
-                    'selector' => '%%order_class%% .owl-social-share-button',
-                    'declaration' => 'border: 2px solid ' . esc_attr($custom_color) . ' !important; color: ' . esc_attr($custom_color) . ' !important; background-color: transparent !important;'
-                ));
-
-                ET_Builder_Element::set_style($render_slug, array(
-                    'selector' => '%%order_class%% .owl-social-share-button:hover',
-                    'declaration' => 'border-color: ' . esc_attr($custom_hover_color) . ' !important; background-color: ' . esc_attr($custom_hover_color) . ' !important; color: ' . esc_attr($custom_text_hover_color) . ' !important;'
-                ));
-            } else if ($button_style === 'minimal') {
-                ET_Builder_Element::set_style($render_slug, array(
-                    'selector' => '%%order_class%% .owl-social-share-button',
-                    'declaration' => 'color: ' . esc_attr($custom_color) . ' !important; background-color: transparent !important; border: none !important;'
-                ));
-
-                ET_Builder_Element::set_style($render_slug, array(
-                    'selector' => '%%order_class%% .owl-social-share-button:hover',
-                    'declaration' => 'color: ' . esc_attr($custom_hover_color) . ' !important; background-color: transparent !important;'
-                ));
-            }
+        // Define container styles for buttons
+        $buttons_container_style = 'display: flex; flex-wrap: wrap; width: 100%;';
+        
+        // Apply alignment styles
+        if ($alignment === 'center') {
+            $buttons_container_style .= ' justify-content: center; text-align: center;';
+            $classes[] = 'et_pb_text_align_center';
+        } else if ($alignment === 'right') {
+            $buttons_container_style .= ' justify-content: flex-end; text-align: right;';
+            $classes[] = 'et_pb_text_align_right';
         } else {
-            // Remove custom color class if original colors are used
-            $classes[] = 'original-colors';
+            $buttons_container_style .= ' justify-content: flex-start; text-align: left;';
+            $classes[] = 'et_pb_text_align_left';
         }
 
-        // Determine the URL, title, description, and image to share
-        $page_url = !empty($custom_url) ? $custom_url : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $page_title = !empty($custom_title) ? $custom_title : (function_exists('get_the_title') ? get_the_title() : 'Share This Page');
-        $page_description = !empty($custom_description) ? $custom_description : (function_exists('get_the_excerpt') ? get_the_excerpt() : 'Check out this page');
-        $page_image = !empty($custom_image) ? $custom_image : (function_exists('get_the_post_thumbnail_url') && function_exists('get_the_ID') ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '');
+        // Handle fixed positioning alignments
+        if (strpos($alignment, '_fixed') !== false) {
+            $container_style .= ' position: fixed; z-index: 999; width: auto !important; margin-bottom: 0 !important;';
+            
+            if (strpos($alignment, 'left_top') !== false) {
+                $container_style .= ' top: 20px; left: 20px;';
+            } else if (strpos($alignment, 'left_center') !== false) {
+                $container_style .= ' top: 50%; left: 20px; transform: translateY(-50%);';
+            } else if (strpos($alignment, 'left_bottom') !== false) {
+                $container_style .= ' bottom: 20px; left: 20px; top: auto;';
+            } else if (strpos($alignment, 'right_top') !== false) {
+                $container_style .= ' top: 20px; right: 20px; left: auto;';
+            } else if (strpos($alignment, 'right_center') !== false) {
+                $container_style .= ' top: 50%; right: 20px; left: auto; transform: translateY(-50%);';
+            } else if (strpos($alignment, 'right_bottom') !== false) {
+                $container_style .= ' bottom: 20px; right: 20px; left: auto; top: auto;';
+            }
+            
+            // Apply mobile position adjustments
+            if ($mobile_position !== 'default') {
+                $output .= '<style>
+                    @media only screen and (max-width: 768px) {
+                        .owl-social-share-buttons.mobile-bottom_fixed {
+                            position: fixed !important;
+                            top: auto !important;
+                            bottom: 0 !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            transform: none !important;
+                            width: 100% !important;
+                            padding: 10px;
+                            background-color: rgba(255, 255, 255, 0.95);
+                            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                            z-index: 999;
+                        }
+                        .owl-social-share-buttons.mobile-bottom_fixed .owl-social-share-buttons-container {
+                            flex-direction: row !important;
+                            justify-content: center !important;
+                            flex-wrap: wrap !important;
+                            width: 100% !important;
+                        }
+                        .owl-social-share-buttons.mobile-top_fixed {
+                            position: fixed !important;
+                            bottom: auto !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            transform: none !important;
+                            width: 100% !important;
+                            padding: 10px;
+                            background-color: rgba(255, 255, 255, 0.95);
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                            z-index: 999;
+                        }
+                        .owl-social-share-buttons.mobile-top_fixed .owl-social-share-buttons-container {
+                            flex-direction: row !important;
+                            justify-content: center !important;
+                            flex-wrap: wrap !important;
+                            width: 100% !important;
+                        }
+                    }
+                </style>';
+                
+                $classes[] = 'mobile-' . $mobile_position;
+            }
+            
+            // For fixed positions, make container column
+            $buttons_container_style = 'display: flex; flex-direction: column; width: auto !important;';
+        }
+
+        if ($button_layout === 'vertical') {
+            $buttons_container_style .= ' flex-direction: column;';
+        } else if ($button_layout === 'grid') {
+            $buttons_container_style = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; width: 100%;';
+        }
 
         // HTML attributes for links
         $link_attrs = '';
@@ -835,16 +878,34 @@ class OwlSocialShareButton extends ET_Builder_Module {
             $link_attrs .= ' rel="nofollow"';
         }
 
-        // Build the HTML output
-        $output = sprintf('<div class="%1$s">', esc_attr(implode(' ', $classes)));
+        // Determine the URL, title, description, and image to share
+        $page_url = !empty($custom_url) ? $custom_url : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $page_title = !empty($custom_title) ? $custom_title : (function_exists('get_the_title') ? get_the_title() : 'Share This Page');
+        $page_description = !empty($custom_description) ? $custom_description : (function_exists('get_the_excerpt') ? get_the_excerpt() : 'Check out this page');
+        $page_image = !empty($custom_image) ? $custom_image : (function_exists('get_the_post_thumbnail_url') && function_exists('get_the_ID') ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '');
 
-       
+        // Add data attributes for hover colors for JavaScript to use
+        $data_attrs = '';
+        if (!$use_original_colors) {
+            $data_attrs .= sprintf(' data-hover-bg-color="%1$s" data-hover-text-color="%2$s"', 
+                esc_attr($custom_hover_color),
+                esc_attr($custom_text_hover_color)
+            );
+        }
+        
+        // Build the HTML output
+        $output = sprintf('<div class="%1$s" style="%2$s"%3$s>', 
+            esc_attr(implode(' ', $classes)), 
+            $container_style,
+            $data_attrs
+        );
 
         // Add buttons container
-        $output .= '<div class="owl-social-share-buttons-container">';
-         // Add title if enabled
-         if ($show_title && !empty($title)) {
-            $output .= sprintf('<h3 class="owl-social-share-title">%1$s</h3>', esc_html($title));
+        $output .= sprintf('<div class="owl-social-share-buttons-container" style="%s">', $buttons_container_style);
+         
+        // Add title if enabled
+        if ($show_title && !empty($title)) {
+            $output .= sprintf('<h3 class="owl-social-share-title" style="margin-bottom: 15px; font-weight: 600; display: block; width: 100%; clear: both;">%1$s</h3>', esc_html($title));
         }
 
         // Generate buttons for enabled networks
@@ -857,20 +918,100 @@ class OwlSocialShareButton extends ET_Builder_Module {
                     $network['url']
                 );
 
-                $button_content = sprintf('<i class="%1$s" aria-hidden="true"></i>', esc_attr($network['icon']));
+                // Button style - start with basic styling for all buttons
+                $btn_style = sprintf(
+                    'display: inline-flex; align-items: center; justify-content: center; height: %1$s; padding: %2$s; margin-right: %3$s; margin-bottom: %3$s; border-radius: %4$s; text-decoration: none; transition: all 0.3s ease; cursor: pointer; overflow: hidden; position: relative;',
+                    $button_height,
+                    $button_padding, 
+                    $spacing,
+                    $button_radius
+                );
+
+                // Apply style-specific button styling
+                if ($button_style === 'filled') {
+                    if ($use_original_colors) {
+                        // Use network colors for filled buttons
+                        $btn_style .= sprintf(
+                            'background-color: %1$s; color: #ffffff; border: none;',
+                            $network['color']
+                        );
+                    } else {
+                        // Use custom colors for filled buttons
+                        $btn_style .= sprintf(
+                            'background-color: %1$s; color: %2$s; border: none;',
+                            $custom_color,
+                            $custom_text_color
+                        );
+                    }
+                } else if ($button_style === 'outlined') {
+                    if ($use_original_colors) {
+                        // Use network colors for outlined buttons
+                        $btn_style .= sprintf(
+                            'background-color: transparent; color: %1$s; border: 2px solid %1$s;',
+                            $network['color']
+                        );
+                    } else {
+                        // Use custom colors for outlined buttons
+                        $btn_style .= sprintf(
+                            'background-color: transparent; color: %1$s; border: 2px solid %1$s;',
+                            $custom_color
+                        );
+                    }
+                } else if ($button_style === 'minimal') {
+                    if ($use_original_colors) {
+                        // Use network colors for minimal buttons
+                        $btn_style .= sprintf(
+                            'background-color: transparent; color: %1$s; border: none;',
+                            $network['color']
+                        );
+                    } else {
+                        // Use custom colors for minimal buttons
+                        $btn_style .= sprintf(
+                            'background-color: transparent; color: %1$s; border: none;',
+                            $custom_color
+                        );
+                    }
+                }
+
+                // Special case for circle buttons without labels
+                if ($button_shape === 'circle' && !$show_label) {
+                    $btn_style .= sprintf(
+                        'width: %1$s; padding: 0;',
+                        $button_height
+                    );
+                }
 
                 if ($show_label) {
-                    $button_content .= sprintf('<span>%1$s</span>', esc_html($network['name']));
+                    $btn_style .= sprintf('min-width: %s;', $button_min_width);
+                }
+
+                // Icon style
+                $icon_style = sprintf(
+                    'font-size: %1$s;', 
+                    $icon_font_size
+                );
+
+                // Label style
+                $label_style = sprintf(
+                    'font-size: %1$s; font-weight: 500; margin-left: 8px;',
+                    $label_font_size
+                );
+
+                $button_content = sprintf('<i class="%1$s" style="%2$s" aria-hidden="true"></i>', esc_attr($network['icon']), $icon_style);
+
+                if ($show_label) {
+                    $button_content .= sprintf('<span style="%1$s">%2$s</span>', $label_style, esc_html($network['name']));
                 }
 
                 if ($show_count) {
-                    $button_content .= sprintf('<span class="owl-social-share-count">0</span>');
+                    $button_content .= sprintf('<span class="owl-social-share-count" style="background-color: rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 0 8px; margin-left: 8px; font-size: 12px; min-width: 24px; text-align: center;">0</span>');
                 }
 
                 $output .= sprintf(
-                    '<a href="%1$s" class="owl-social-share-button owl-social-share-%2$s"%3$s>%4$s</a>',
+                    '<a href="%1$s" class="owl-social-share-button owl-social-share-%2$s" style="%3$s" %4$s>%5$s</a>',
                     esc_url($share_url),
                     esc_attr($network_id),
+                    $btn_style,
                     $link_attrs,
                     $button_content
                 );
@@ -880,7 +1021,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
         $output .= '</div>'; // Close buttons container
         $output .= '</div>'; // Close main container
 
-        // Add inline script for share counts and print functionality
+        // Add inline script for print functionality and hover effects
         $output .= '<script>
             jQuery(document).ready(function($) {
                 // Handle print button click
@@ -888,10 +1029,87 @@ class OwlSocialShareButton extends ET_Builder_Module {
                     e.preventDefault();
                     window.print();
                 });
-
-                // This is a placeholder for the share count functionality
-                // You would need to implement API calls to each service to get real counts
-                // or use a third-party service that provides this data
+                
+                // Add hover effects manually
+                $(".owl-social-share-buttons.hover-grow .owl-social-share-button").hover(
+                    function() { $(this).css("transform", "scale(1.1)"); },
+                    function() { $(this).css("transform", ""); }
+                );
+                
+                $(".owl-social-share-buttons.hover-shrink .owl-social-share-button").hover(
+                    function() { $(this).css("transform", "scale(0.9)"); },
+                    function() { $(this).css("transform", ""); }
+                );
+                
+                $(".owl-social-share-buttons.hover-float .owl-social-share-button").hover(
+                    function() { $(this).css("transform", "translateY(-5px)"); },
+                    function() { $(this).css("transform", ""); }
+                );
+                
+                $(".owl-social-share-buttons.hover-rotate .owl-social-share-button").hover(
+                    function() { $(this).css("transform", "rotate(5deg)"); },
+                    function() { $(this).css("transform", ""); }
+                );
+                
+                // Apply custom hover colors
+                $(".owl-social-share-button").hover(
+                    function() {
+                        var $button = $(this);
+                        var originalBackgroundColor = $button.css("background-color");
+                        var originalTextColor = $button.css("color");
+                        var buttonStyle = $(".owl-social-share-buttons").attr("class").indexOf("style-filled") >= 0 ? "filled" : 
+                                          $(".owl-social-share-buttons").attr("class").indexOf("style-outlined") >= 0 ? "outlined" : "minimal";
+                        var useOriginalColors = $(".owl-social-share-buttons").attr("class").indexOf("original-colors") >= 0;
+                        
+                        // Store original values for restoration
+                        $button.data("original-bg", originalBackgroundColor);
+                        $button.data("original-color", originalTextColor);
+                        
+                        // Custom color values from module settings
+                        var customHoverBgColor = "<?php echo $custom_hover_color; ?>";
+                        var customHoverTextColor = "<?php echo $custom_text_hover_color; ?>";
+                        
+                        if (!useOriginalColors) {
+                            if (buttonStyle === "filled") {
+                                // For filled buttons, apply hover background and text color
+                                $button.css({
+                                    "background-color": customHoverBgColor,
+                                    "color": customHoverTextColor
+                                });
+                            } else if (buttonStyle === "outlined") {
+                                // For outlined buttons, apply hover color and fill with background
+                                $button.css({
+                                    "background-color": customHoverBgColor,
+                                    "color": customHoverTextColor,
+                                    "border-color": customHoverBgColor
+                                });
+                            } else if (buttonStyle === "minimal") {
+                                // For minimal buttons, just change the text color
+                                $button.css({
+                                    "color": customHoverBgColor
+                                });
+                            }
+                        } else {
+                            // For original colors, handle outlined style specially
+                            if (buttonStyle === "outlined") {
+                                var borderColor = $button.css("border-color");
+                                $button.css({
+                                    "background-color": borderColor,
+                                    "color": "#ffffff"
+                                });
+                            }
+                        }
+                    },
+                    function() {
+                        // Restore original values on mouseout
+                        var $button = $(this);
+                        $button.css({
+                            "background-color": $button.data("original-bg"),
+                            "color": $button.data("original-color"),
+                            "border-color": $button.data("original-border")
+                        });
+                    }
+                );
             });
         </script>';
 
