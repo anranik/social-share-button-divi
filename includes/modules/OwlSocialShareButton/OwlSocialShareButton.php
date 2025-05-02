@@ -905,7 +905,7 @@ class OwlSocialShareButton extends ET_Builder_Module {
          
         // Add title if enabled
         if ($show_title && !empty($title)) {
-            $output .= sprintf('<h3 class="owl-social-share-title" style="margin-bottom: 15px; font-weight: 600; display: block; width: 100%; clear: both;">%1$s</h3>', esc_html($title));
+            $output .= '<h3 class="owl-social-share-title" style="margin-bottom: 15px; font-weight: 600; display: block; width: 100%; clear: both;">' . esc_html($title) . '</h3>';
         }
 
         // Generate buttons for enabled networks
