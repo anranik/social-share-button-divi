@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <style>
+    .button-shape { fill: #6c2eb9; }
+    .share-icon { fill: #ffffff; }
+    .social-dots { fill: #e97dff; }
+  </style>
+  
+  <!-- Button base -->
+  <rect class="button-shape" x="8" y="8" width="48" height="48" rx="12" ry="12"/>
+  
+  <!-- Share arrow -->
+  <g class="share-icon" transform="translate(22 22)">
+    <path d="M20 16V24H28M20 28L12 20L20 12"/>
+  </g>
+  
+  <!-- Social connection dots -->
+  <g transform="translate(18 18)">
+    <circle class="social-dots" cx="14" cy="2" r="2"/>
+    <circle class="social-dots" cx="28" cy="14" r="2"/>
+    <circle class="social-dots" cx="14" cy="26" r="2"/>
+    <circle class="social-dots" cx="0" cy="14" r="2"/>
+  </g>
+</svg>

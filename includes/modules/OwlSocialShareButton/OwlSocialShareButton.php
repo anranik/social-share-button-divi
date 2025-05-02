@@ -22,14 +22,14 @@ class OwlSocialShareButton extends ET_Builder_Module {
     public $main_css_element = '%%order_class%%';
 
     protected $module_credits = array(
-        'module_uri' => 'https://your-website.com/owl-social-sharing-buttons-for-divi',
-        'author' => 'Your Name',
-        'author_uri' => 'https://your-website.com',
+        'module_uri' => 'https://owlpixel.com/social-share-button-divi/',
+        'author' => 'Owlpixel',
+        'author_uri' => 'https://owlpixel.com',
     );
 
     public function init() {
         $this->name = esc_html__('Owl Social Share Buttons', 'owl-social-sharing-buttons');
-        $this->icon = 'share';
+        $this->icon_path = plugin_dir_path(__FILE__) . 'icon.svg';
         $this->category = esc_html__('Social', 'owl-social-sharing-buttons');
 
         // Load CSS
@@ -806,7 +806,16 @@ class OwlSocialShareButton extends ET_Builder_Module {
         }
 
         // Determine the URL, title, description, and image to share
-        $page_url = !empty($custom_url) ? $custom_url : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        // Use WordPress functions when available
+        if (function_exists('get_permalink') && is_singular()) {
+            $page_url = !empty($custom_url) ? esc_url($custom_url) : get_permalink();
+        } else {
+            // Fallback with proper sanitization
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+            $host = isset($_SERVER['HTTP_HOST']) ? sanitize_text_field($_SERVER['HTTP_HOST']) : '';
+            $request_uri = isset($_SERVER['REQUEST_URI']) ? esc_url_raw($_SERVER['REQUEST_URI']) : '';
+            $page_url = !empty($custom_url) ? esc_url($custom_url) : $protocol . "://" . $host . $request_uri;
+        }
         $page_title = !empty($custom_title) ? $custom_title : (function_exists('get_the_title') ? get_the_title() : 'Share This Page');
         $page_description = !empty($custom_description) ? $custom_description : (function_exists('get_the_excerpt') ? get_the_excerpt() : 'Check out this page');
         $page_image = !empty($custom_image) ? $custom_image : (function_exists('get_the_post_thumbnail_url') && function_exists('get_the_ID') ? get_the_post_thumbnail_url(get_the_ID(), 'full') : '');
