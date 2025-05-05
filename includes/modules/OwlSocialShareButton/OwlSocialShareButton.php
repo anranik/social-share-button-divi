@@ -796,7 +796,6 @@ class OwlSocialShareButton extends ET_Builder_Module {
             $classes[] = 'et_pb_text_align_left';
         }
 
-        print_r($this->props);
 
         // Handle fixed positioning alignments
         if (strpos($alignment, '_fixed') !== false) {
